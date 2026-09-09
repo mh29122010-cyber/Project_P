@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "API da pizzaria SENAC",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node--watch index.js"
+  },
+  "author": "Miguel",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^6.0.0"
+  }
+}
