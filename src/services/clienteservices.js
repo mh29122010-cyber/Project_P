@@ -47,10 +47,9 @@ export const create = async (clienteData) => {
     tipo: 'cliente',
   };
  
-  await db.query('INSERT INTO usuario SET ?', newCliente);
- 
+  await db.query('INSERT INTO usuario SET ?', newCliente)
   delete newCliente.senha;
-  return newCliente;
+ return newCliente;
 };
  
 export const update = async (cpf, clienteData) => {

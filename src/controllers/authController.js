@@ -1,21 +1,20 @@
 //srfc/controllers/authcontrollers.js
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import * as clienteservice from '../services/clienteservices';
-import { token, token } from 'morgan';
+import * as clienteservice from '../services/clienteservices.js';
 export const login = async (req, res) => {
  const {cpf, senha  } = req.body;
  try { 
 //1-verificar se o usuario existe no banco de dados
 const clientes = await clienteservice.findAll(cpf)
-const cliente = cliente
+const cliente = clientes[0]
 
 if (!cliente){
     return res.status (401).json({message:"credenciais inválidas"});
 }
 // 2-Comparar a senha enviada com o hash salvo no banco
 const senhaValida = await bcrypt.compare(senha, cliente.senha)
-if (!senhavalida) {
+if (!senhaValida) {
     return res.status(401).json ({ message:"credenciais invalidas"});
 }
 //3-Gerar o token JWT
