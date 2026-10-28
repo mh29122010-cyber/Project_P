@@ -15,10 +15,8 @@ import { fileURLToPath } from 'url';
 // // //Importando as rotas.
 // // Importa as rotas de autenticação
 import authRoutes from './routes/authroutes.js'; 
-
-import clienteRoutes from '../src/routes/clienteRoutes.js';
- 
-// import produtoRoutes from './routes/produtoRoute.js';
+import clienteRoutes from './routes/clienteRoutes.js';
+import produtoRoutes from './routes/produtoRoutes.js';
 // import pedidoRoutes from './routes/pedidoRoute.js';
  
  
@@ -52,8 +50,8 @@ app.get('/', (req, res) => {
 const apiPrefix = '/api';
 // Rotas gerais da API (ex: /api/sandro)
 app.use(`${apiPrefix}/clientes`, clienteRoutes); // ex: /api/clientes/
- app.use(`${apiPrefix}/login`, authRoutes); 
-// app.use(`${apiPrefix}/produtos`, produtoRoutes); // ex: /api/produtos/
+app.use(`${apiPrefix}/login`, authRoutes); 
+app.use(`${apiPrefix}/produtos`, produtoRoutes); // ex: /api/produtos/
 // app.use(`${apiPrefix}/pedidos`, pedidoRoutes);   // ex: /api/pedidos/ (exige token)
  
 // --- TRATAMENTO DE ERROS ---
